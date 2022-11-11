@@ -1,0 +1,77 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/BreeSerif-Regular.ttf",
+      "sha1": "f19ca8ca7c6f79883f331cf66f4a7d4bc5651a42"
+    },
+    {
+      "path": "src/assets/fonts/JosefinSans-Bold.ttf",
+      "sha1": "dc9bf9dd3c3207275c97e8e66d37544867c15566"
+    },
+    {
+      "path": "src/assets/fonts/Pacifico.ttf",
+      "sha1": "e2c6924078183bd9fee72e8a6b3992dc637580f0"
+    },
+    {
+      "path": "src/assets/fonts/Roboto-Medium.ttf",
+      "sha1": "3c6a09fcc6a454924c81af7dff94fc6d399ed79b"
+    },
+    {
+      "path": "src/assets/images/cart.png",
+      "sha1": "c33a53437cdc6cf8f0e29f3e1379b29475c25964"
+    },
+    {
+      "path": "src/assets/images/cartActive.png",
+      "sha1": "9a327bea83318efe4c43a74d19cc5e60ef1df4f9"
+    },
+    {
+      "path": "src/assets/images/chevron.jpg",
+      "sha1": "9526c1bdaafdd1fda0f3d8b0c60bc3ffc6bd1d3a"
+    },
+    {
+      "path": "src/assets/images/ecart.png",
+      "sha1": "14cff082175310b3b21eaccce05aa874458e6d4c"
+    },
+    {
+      "path": "src/assets/images/feedback.png",
+      "sha1": "e826990136ad7ffeadab77104896d555b19caac2"
+    },
+    {
+      "path": "src/assets/images/feedbackActive.png",
+      "sha1": "f4ab2db63c1364e0c6a24974da9c23c1d781c954"
+    },
+    {
+      "path": "src/assets/images/home.png",
+      "sha1": "5e80db934d6a91b9278c5c40d1cc305b8b64ad1b"
+    },
+    {
+      "path": "src/assets/images/homeActive.png",
+      "sha1": "0042786e79f7f23e4fc3bac9d5ef9aba6da1a369"
+    },
+    {
+      "path": "src/assets/images/login.webp",
+      "sha1": "42fe0ea81a42d75d5eb19a278f13ad27c58383de"
+    },
+    {
+      "path": "src/assets/images/logout.webp",
+      "sha1": "23e0540e2b7f9c52bbe90f8dbd6f8fa82b383d9e"
+    },
+    {
+      "path": "src/assets/images/productActive.png",
+      "sha1": "3b02db357cd9ef85902b7e29f6edff90ccb5baa5"
+    },
+    {
+      "path": "src/assets/images/products.png",
+      "sha1": "b520b82f336e21ac807bb8eb42bcba779c59a2fc"
+    },
+    {
+      "path": "src/assets/images/search.webp",
+      "sha1": "852e27b72e93772e7c93d1f1a9f83bc9f9bcc694"
+    },
+    {
+      "path": "src/assets/images/threelines.webp",
+      "sha1": "9b936e649eb6438463104890622d9bee5f4e3aef"
+    }
+  ]
+}
