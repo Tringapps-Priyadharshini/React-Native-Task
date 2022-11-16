@@ -1,4 +1,6 @@
 import { StyleSheet, View } from "react-native";
+import { colors } from "../../../shared/styles/colors";
+import { fonts } from "../../../shared/styles/fonts";
 import TextBox from "../../atoms/TextInput/TextBox";
 const FormFields = () => {
     return (
@@ -11,12 +13,12 @@ const FormFields = () => {
 export default FormFields;
 
 const styles = StyleSheet.create({
-    input:{
-        margin:30,
-        borderWidth:1,
-        backgroundColor:'#F7F7F7',
-        fontSize:22,
-        borderRadius:5,
-        fontFamily:'JosefinSans-Medium'
+    input: {
+        margin: 30,
+        borderWidth: 1,
+        backgroundColor: colors.whiteSmoke,
+        fontSize: 22,
+        borderRadius: 5,
+        fontFamily: fonts.JosefinSansMedium
     },
 })

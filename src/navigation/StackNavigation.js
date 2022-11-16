@@ -3,7 +3,7 @@ import Form from "../components/screens/Form";
 import Search from '../components/screens/Search'
 import Details from '../components/screens/Details';
 import DrawerNavigation from './DrawerNavigation';
-const StackNavigation = ({initialRoute}) => {
+const StackNavigation = ({ initialRoute }) => {
     const Stack = createStackNavigator();
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={initialRoute}>

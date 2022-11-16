@@ -1,12 +1,13 @@
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { NavigationContainer, DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { email } from "../redux/actions";
 import StackNavigation from "../navigation/StackNavigation";
+import Loading from "./atoms/ActivityIndicator/Loading";
 
-const Ecommerce = () => {
+const Container = () => {
   const isDarkModes = useSelector(state => state.darkMode);
   const [initialRoute, setInitialRoute] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -38,18 +39,18 @@ const Ecommerce = () => {
 
   useEffect(() => {
     checkDarkMode();
-  },[isDarkModes])
+  }, [isDarkModes])
 
   return (
     <>
       {
         initialRoute ?
           <NavigationContainer theme={(isDarkMode === true) ? DarkTheme : DefaultTheme}>
-            <StackNavigation initialRoute = {initialRoute} />
+            <StackNavigation initialRoute={initialRoute} />
           </NavigationContainer>
           :
           <View style={styles.load}>
-            <ActivityIndicator animating={true} size="large" color="#bc2b78" />
+            <Loading />
           </View>
       }
     </>
@@ -71,4 +72,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Ecommerce;
+export default Container;

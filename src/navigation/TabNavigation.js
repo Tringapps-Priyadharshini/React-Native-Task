@@ -1,4 +1,4 @@
-import { StyleSheet,View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Home from '../components/screens/Home';
 import Products from '../components/screens/Products';
 import Feedback from '../components/screens/Feedback';
@@ -15,85 +15,88 @@ import cart from '../assets/images/cart.png';
 import cartActive from '../assets/images/cartActive.png';
 import ImageLocal from '../components/atoms/Image/ImageLocal';
 import TextAtom from '../components/atoms/Text/TextAtom';
-
+import { colors } from '../shared/styles/colors';
 
 const TabNavigation = () => {
-    const Tab = createBottomTabNavigator();
-    const countCartData = useSelector(state => state.cartData.length);
-    return (
-      <Tab.Navigator screenOptions={{
-        headerShown: false,
-        tabBarLabel: () => { return null },
-        tabBarStyle:styles.tabBarStyle,
-        tabBarHideOnKeyboard : true
+  const Tab = createBottomTabNavigator();
+  const countCartData = useSelector(state => state.cartData.length);
+  return (
+    <Tab.Navigator screenOptions={{
+      headerShown: false,
+      tabBarLabel: () => { return null },
+      tabBarStyle: styles.tabBarStyle,
+      tabBarHideOnKeyboard: true
 
-      }} >
-        <Tab.Screen name="Home" component={Home} options={{
-          tabBarIcon: ({ focused }) => (
-            focused ?
-              <ImageLocal source = {homeActive} imageStyle = {styles.tabImg} />
-              :
-              <ImageLocal source = {home} imageStyle = {styles.tabImg} />
-          )
-        }} />
-        <Tab.Screen name="Product" component={Products} options={{
-          tabBarIcon: ({ focused }) => (
-            focused ?
-              <ImageLocal source = {productActive} imageStyle = {styles.tabImg} />
-              :
-              <ImageLocal source = {products} imageStyle = {styles.tabImg} />
-          )
-        }} />
-        <Tab.Screen name="feedback" component={Feedback} options={{
-          tabBarIcon: ({ focused }) => (
-            focused ?
-              <ImageLocal source = {feedbackActive} imageStyle = {styles.tabImg} />
-              :
-              <ImageLocal source = {feedback} imageStyle = {styles.tabImg} />
-          ),
+    }} >
+      <Tab.Screen name="Home" component={Home} options={{
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <ImageLocal source={homeActive} imageStyle={styles.tabImg} />
+            :
+            <ImageLocal source={home} imageStyle={styles.tabImg} />
+        )
+      }} />
+      <Tab.Screen name="Product" component={Products} options={{
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <ImageLocal source={productActive} imageStyle={styles.tabImg} />
+            :
+            <ImageLocal source={products} imageStyle={styles.tabImg} />
+        )
+      }} />
+      <Tab.Screen name="feedback" component={Feedback} options={{
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <ImageLocal source={feedbackActive} imageStyle={styles.tabImg} />
+            :
+            <ImageLocal source={feedback} imageStyle={styles.tabImg} />
+        ),
 
-        }} />
-        <Tab.Screen name="cart" component={Cart} options={{
-          tabBarIcon: ({ focused }) => (
-            focused ?
-              <ImageLocal source = {cartActive} imageStyle = {styles.tabImg} />
-              :
-              <View style = {styles.cartContainer}>
-              <ImageLocal source = {cart} imageStyle = {styles.tabImg} />
-              {countCartData > 0 && 
-                <TextAtom textStyle = {styles.notification} content = {countCartData>99 ? '99+' : countCartData} />
+      }} />
+      <Tab.Screen name="cart" component={Cart} options={{
+        tabBarIcon: ({ focused }) => (
+          focused ?
+            <ImageLocal source={cartActive} imageStyle={styles.tabImg} />
+            :
+            <View style={styles.cartContainer}>
+              <ImageLocal source={cart} imageStyle={styles.tabImg} />
+              {countCartData > 0 &&
+                <TextAtom textStyle={styles.notification} content={countCartData > 99 ? '99+' : countCartData} />
               }
-              </View>
-          ),
+            </View>
+        ),
 
-        }} />
-      </Tab.Navigator>
-    )
+      }} />
+    </Tab.Navigator>
+  )
+}
+
+const styles = StyleSheet.create({
+  tabImg: {
+    width: 30,
+    height: 30,
+  },
+  cartContainer: {
+    position: 'relative'
+  },
+  notification: {
+    backgroundColor: colors.red,
+    borderRadius: 100,
+    width: 20,
+    height: 20,
+    position: 'absolute',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: colors.black,
+    fontSize: 15,
+    right: 0,
+    marginTop: -40,
+    marginRight: -8
+  },
+  tabBarStyle: {
+    height: 60,
+    backgroundColor: colors.pattensBlue
   }
-
-  const styles = StyleSheet.create({
-    tabImg: {
-        width: 30,
-        height: 30,
-    },
-    cartContainer:{
-      position:'relative'
-    },
-    notification:{
-      backgroundColor:'red',
-      borderRadius:100,
-      width:20,
-      height:20,
-      position:'absolute',
-      textAlign:'center',
-      fontWeight:'bold',
-      color:'#000000',
-      fontSize:15,
-      right:0,
-      marginTop:-40,
-      marginRight:-8
-    },
-    tabBarStyle:{height:60,backgroundColor:'#D0E8F2'}
 })
 
-  export default TabNavigation;
+export default TabNavigation;

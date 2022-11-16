@@ -1,5 +1,7 @@
 import { useTheme } from "@react-navigation/native";
 import { View, FlatList, Text, StyleSheet, Image, SectionList } from "react-native";
+import { colors } from "../../shared/styles/colors";
+import { fonts } from "../../shared/styles/fonts";
 const Products = () => {
     const { colors } = useTheme();
     const theme = useTheme();
@@ -82,7 +84,7 @@ const Products = () => {
 
     const RenderItem = ({ item }) => {
         return (
-            <View style={[styles.card, theme.dark ? { backgroundColor: 'black', borderBottomColor: '#D0E8F2' } : { backgroundColor: '#f6f6f6' }]}>
+            <View style={[styles.card, theme.dark ? styles.productContainerDarkTheme : styles.productContainerLightTheme]}>
                 <View styles={styles.imgContainer}>
                     <Image
                         style={styles.productImage}
@@ -102,9 +104,7 @@ const Products = () => {
         )
     }
 
-
     return (
-
         <SectionList
             sections={DATA}
             contentContainerStyle={{ paddingHorizontal: 10 }}
@@ -129,11 +129,11 @@ export default Products;
 const styles = StyleSheet.create({
     heading: {
         fontSize: 25,
-        color: 'black',
+        color: colors.black,
         fontWeight: 'bold',
         padding: 10,
         textAlign: 'center',
-        fontFamily: 'BreeSerif-Regular'
+        fontFamily: fonts.BreeSerifRegular
     },
     card: {
         display: 'flex',
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         marginVertical: 20,
         marginHorizontal: 5,
         borderWidth: 2,
-        borderColor: '#dedede',
+        borderColor: colors.lightGrey,
     },
 
     title: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         lineHeight: 30,
         margin: 20,
-        fontFamily: 'JosefinSans-Bold',
+        fontFamily: fonts.JosefinSansBold
 
 
     },
@@ -164,17 +164,23 @@ const styles = StyleSheet.create({
     price: {
         fontSize: 29,
         margin: 15,
-        fontFamily: 'Roboto-Medium'
+        fontFamily: fonts.RobotoMedium
     },
     description: {
         fontSize: 20,
         padding: 10,
         textAlign: 'justify',
         width: 300,
-        // height:65,
         borderRadius: 10,
         marginBottom: 20,
+        fontFamily: fonts.RobotoMedium
+    },
 
-        fontFamily: 'Roboto-Medium'
+    productContainerDarkTheme: {
+        backgroundColor: colors.black,
+        borderBottomColor: colors.pattensBlue
+    },
+    productContainerLightTheme: {
+        backgroundColor: colors.whiteSmoke
     }
 })

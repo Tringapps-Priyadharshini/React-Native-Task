@@ -5,11 +5,11 @@ import data from './data';
 import email from './email'
 import particularDetail from "./particularDetail";
 const store = combineReducers({
-    fetchData:data,
-    userEmail:email,
-    particularDetail:particularDetail,
-    cartData:cartData,
-    darkMode:darkMode
+    fetchData: data,
+    userEmail: email,
+    particularDetail: particularDetail,
+    cartData: cartData,
+    darkMode: darkMode
 })
 
 export default store;

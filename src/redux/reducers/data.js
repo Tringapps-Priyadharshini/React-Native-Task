@@ -1,12 +1,11 @@
 const initialState = {
-    data:null
+    data: null
 }
-const data = (state = initialState,action) => {
-    switch(action.type){
-        case 'DATA' : return action.payload
-        default:return state
+const data = (state = initialState, action) => {
+    switch (action.type) {
+        case 'DATA': return action.payload
+        default: return state
     }
 }
 export default data;
 
-  

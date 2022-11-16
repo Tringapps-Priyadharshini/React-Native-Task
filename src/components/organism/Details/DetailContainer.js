@@ -7,6 +7,8 @@ import ToastMessage from "../../molecules/Details/ToastMessage";
 import chevron from '../../../assets/images/chevron.jpg';
 import Button from "../../atoms/Button/Button";
 import { cartData } from "../../../redux/actions";
+import { colors } from "../../../shared/styles/colors";
+import { fonts } from "../../../shared/styles/fonts";
 const DetailContainer = ({ navigation }) => {
     const data = useSelector(state => state.particularDetail);
     const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const DetailContainer = ({ navigation }) => {
             {toast && <ToastMessage toast={toast} setToast={setToast} />}
             <View>
                 <ProductDetails toast={toast} setToast={setToast} />
-                <View style = {styles.btn}>
+                <View style={styles.btn}>
                     <Button title="ADD TO CART" onPress={() => handleCart(data)} disabled={toast} toast={toast} textStyle={styles.cartBtn} />
                 </View>
             </View>
@@ -33,15 +35,15 @@ export default DetailContainer;
 
 const styles = StyleSheet.create({
     img: { width: 30, height: 30, marginTop: 20, marginBottom: 20 },
-    btn:{
-        display:'flex',
-        alignItems:'center'
+    btn: {
+        display: 'flex',
+        alignItems: 'center'
     },
     cartBtn: {
-        backgroundColor: '#D0E8F2',
-        color: 'black',
+        backgroundColor: colors.pattensBlue,
+        color: colors.black,
         fontSize: 28,
-        fontFamily: 'BreeSerif-Regular',
+        fontFamily: fonts.BreeSerifRegular,
         padding: 10,
         borderRadius: 20,
         textAlign: 'center',

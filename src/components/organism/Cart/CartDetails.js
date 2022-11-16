@@ -5,9 +5,11 @@ import Button from '../../atoms/Button/Button';
 import ImageAtom from "../../atoms/Image/ImageAtom";
 import TextAtom from "../../atoms/Text/TextAtom";
 import { useTheme } from "@react-navigation/native";
+import { colors } from "../../../shared/styles/colors";
+import { fonts } from "../../../shared/styles/fonts";
 const CartDetails = () => {
     const cartData = useSelector(state => state.cartData);
-    const {colors} = useTheme();
+    const { colors } = useTheme();
     return (
         <View>
             {(cartData.length > 0) ?
@@ -20,9 +22,7 @@ const CartDetails = () => {
                                         <View style={styles.productContainer}>
                                             <ImageAtom source={cart.image} imageStyle={styles.productImage} />
                                             <View style={styles.productTitlePrice}>
-                                                <View>
-                                                    <CartTitlePrice cart={cart} />
-                                                </View>
+                                                <CartTitlePrice cart={cart} />
                                             </View>
                                         </View>
                                     </View>
@@ -32,10 +32,10 @@ const CartDetails = () => {
                     }
                     <Button title="Proceed to Buy" buttonStyle={styles.buy} textStyle={styles.buyNowText} />
                 </View>
-            :
-            <TextAtom textStyle = {[styles.cartText,{color:colors.text}]} content = "No Products are added in the cart"/>
+                :
+                <TextAtom textStyle={[styles.cartText, { color: colors.text }]} content="No Products are added in the cart" />
 
-        }
+            }
 
         </View>
     )
@@ -45,14 +45,14 @@ export default CartDetails;
 const styles = StyleSheet.create({
     cartText: {
         fontSize: 23,
-        color: 'black',
+        color: colors.black,
         padding: 20,
-        fontFamily: 'BreeSerif-Regular',
+        fontFamily: fonts.BreeSerifRegular,
     },
     container: {
         marginVertical: 8,
         borderBottomWidth: 2,
-        borderBottomColor: '#D0E8F2',
+        borderBottomColor: colors.pattensBlue,
     },
 
     productContainer: {
@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 23,
         marginBottom: 10,
-        fontFamily: 'JosefinSans-Medium',
+        fontFamily: fonts.JosefinSansMedium,
         padding: 2,
         fontWeight: 'bold'
 
     },
     buy: {
-        backgroundColor: '#D0E8F2',
+        backgroundColor: colors.pattensBlue,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
     buyNowText: {
         fontSize: 26,
-        color: 'black',
+        color: colors.black,
         fontWeight: 'bold'
     }
 

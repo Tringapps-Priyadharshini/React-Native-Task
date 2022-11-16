@@ -1,7 +1,7 @@
 import CartDetails from '../organism/Cart/CartDetails';
 const Cart = () => {
     return (
-            <CartDetails />
+        <CartDetails />
     )
 }
 export default Cart;

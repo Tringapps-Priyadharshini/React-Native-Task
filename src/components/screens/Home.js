@@ -2,6 +2,8 @@ import { useTheme } from "@react-navigation/native";
 import { View, FlatList, Text, StyleSheet, TouchableHighlight } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { particularDetail } from "../../redux/actions";
+import { colors } from "../../shared/styles/colors";
+import { fonts } from "../../shared/styles/fonts";
 import ImageAtom from "../atoms/Image/ImageAtom";
 import TextAtom from "../atoms/Text/TextAtom";
 const Home = ({ navigation }) => {
@@ -13,19 +15,12 @@ const Home = ({ navigation }) => {
     const renderItem = ({ item }) => {
         return (
             <TouchableHighlight underlayColor='transparent' onPress={() => handleDetails(item)}>
-                <View style={[styles.container, theme.dark ? { backgroundColor: 'black', borderBottomWidth: 2, borderBottomColor: '#f6f6f6' } : {
-                    backgroundColor: '#f6f6f6', borderWidth: 2,
-                    borderColor: '#dedede'
-                }]}>
+                <View style={[styles.container, theme.dark ? styles.darkThemeStyle : styles.lightThemeStyle]}>
                     <View style={styles.productContainer}>
                         <ImageAtom source={item.image} imageStyle={styles.productImage} />
                         <View style={styles.productTitlePrice}>
-                            <View>
-                                <TextAtom textStyle={[styles.productTitle, { color: colors.text }]} content={item.title} />
-                            </View>
-                            <View>
-                                <TextAtom textStyle={[styles.productPrice, { color: colors.text }]} content={`Rs. ${item.price} /-`} />
-                            </View>
+                            <TextAtom textStyle={[styles.productTitle, { color: colors.text }]} content={item.title} />
+                            <TextAtom textStyle={[styles.productPrice, { color: colors.text }]} content={`Rs. ${item.price} /-`} />
                         </View>
                     </View>
                     <View style={styles.descriptionContainer}>
@@ -41,14 +36,13 @@ const Home = ({ navigation }) => {
         navigation.navigate('details');
     }
 
-
     return (
         <FlatList
             data={data}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             contentContainerStyle={{ paddingBottom: 20 }}
-            ListFooterComponent={<Text style={[styles.endText, theme.dark ? { color: 'white' } : { color: 'brown' }]}>Looks like you've reached the end</Text>}
+            ListFooterComponent={<Text style={[styles.endText, theme.dark ? styles.endTextDarkTheme : styles.endTextLightTheme]}>Looks like you've reached the end</Text>}
         />
     )
 }
@@ -78,35 +72,51 @@ const styles = StyleSheet.create({
     },
     productTitle: {
         textAlign: 'center',
-        color: 'black',
+        color: colors.black,
         fontSize: 23,
         marginBottom: 10,
-        fontFamily: 'JosefinSans-Bold',
+        fontFamily: fonts.JosefinSansBold,
         padding: 2
 
     },
     productPrice: {
         fontSize: 25,
-        color: 'black',
+        color: colors.black,
         textAlign: 'center',
-        fontFamily: 'Roboto-Medium',
+        fontFamily: fonts.RobotoMedium,
     },
     descriptionContainer: {
         padding: 15,
     },
     description: {
-        color: 'black',
+        color: colors.black,
         lineHeight: 23,
         textAlign: 'justify',
         padding: 10,
         fontSize: 21,
         borderRadius: 20,
-        fontFamily: 'Roboto-Medium',
+        fontFamily: fonts.RobotoMedium,
         height: 65,
     },
     endText: {
         fontSize: 23,
-        fontFamily: 'Roboto-Medium',
+        fontFamily: fonts.RobotoMedium,
         textAlign: 'center'
+    },
+    darkThemeStyle: {
+        backgroundColor: colors.black,
+        borderBottomWidth: 2,
+        borderBottomColor: colors.whiteSmoke
+    },
+    lightThemeStyle: {
+        backgroundColor: colors.whiteSmoke,
+        borderWidth: 2,
+        borderColor: colors.lightGrey
+    },
+    endTextDarkTheme: {
+        color: colors.white
+    },
+    endTextLightTheme: {
+        color: colors.crimson
     }
 })

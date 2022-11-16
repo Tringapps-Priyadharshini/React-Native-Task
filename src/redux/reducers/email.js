@@ -1,9 +1,9 @@
 const initialState = {
-    email:''
+    email: ''
 }
-const email = (state = initialState,action) => {
-    switch(action.type){
-        case 'EMAIL':return action.payload;
+const email = (state = initialState, action) => {
+    switch (action.type) {
+        case 'EMAIL': return action.payload;
         default: return state;
     }
 }
